@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Project Mercury — Main</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./main.css" />
+</head>
+<body>
+  <!-- Same space background -->
+  <div class="space" aria-hidden="true">
+    <div class="stars stars-1"></div>
+    <div class="stars stars-2"></div>
+    <div class="stars stars-3"></div>
+    <div class="nebula"></div>
+  </div>
+
+  <main class="timeline" id="timeline">
+
+    <!-- SECTION 1 (unlocked by default) -->
+    <section class="chapter" id="c1" data-index="0" data-locked="false">
+      <div class="chapter-inner">
+        <div class="media">
+          <img src="./images/01.mov" alt="Момент 1">
+        </div>
+
+        <div class="content">
+          <h1 class="title">До того, как мы поняли что чувствуем</h1>
+          <p class="desc">
+            <br>
+            
+            Мы резко стали ближе, хотя раньше я даже не представлял нас друзьями — не говоря уже о чём-то большем. Я знал тебя, но не думал, что наше общение может так быстро стать важным для меня.
+            <br>
+            <br>
+            Каждая встреча добавляла то самое чувство, которое сложно объяснить словами. Чем чаще мы виделись, тем больше я ловил себя на мысли, что рядом с тобой появляется тепло и спокойствие, и это ощущение хотелось сохранить.
+          </p>
+          <p class="comment">Я не забуду, как ты позвала меня сходить с тобой на обход. Я играл, но решил просто выйти из игры и пойти с тобой. Самое забавное — я тогда ещё шутил про то, что хочу найти красивую девочку. И только потом понял, что всё это время обхода она была рядом со мной.
+</p>
+
+          <div class="unlock">
+            <div class="unlock-head">
+              <span class="badge">Вопрос</span>
+              <span class="hint">Ответ откроет следующую главу</span>
+            </div>
+
+            <label class="label" for="q1">Дизайн презинтации для какого проекта сделали мы вместе, и даже успели вместе покушать? Я помню каждую секунду, как мы ее делали...</label>
+            <input class="input" id="q1" type="text" placeholder="Если ответ в виде текста: все маленькими буквами, и не забудь пробелы" autocomplete="off"/>
+
+            <button class="btn" data-action="unlock" data-for="c2">Ответить</button>
+            <p class="error" hidden>Неа. Попробуй ещё раз.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 (locked initially) -->
+    <section class="chapter locked" id="c2" data-index="1" data-locked="true">
+      <div class="chapter-inner">
+        <div class="media">
+          <img src="./images/02.mp4" alt="Момент 2">
+        </div>
+
+        <div class="content">
+          <h2 class="title">Мы делали это вместе</h2>
+          <p class="desc">
+            <br>
+            Мы стали часто проводить время вместе. Успевали и работать — делать дизайны презентаций, и просто быть рядом: смотреть фильмы, разговаривать, ничего не торопя.
+            <br>
+            <br>
+            В какой-то момент ты рассказала, что переезжаешь в другую комнату и хочешь сделать там ремонт. И у меня вдруг появилось сильное желание быть частью этого процесса. Не потому что нужно, а потому что хотелось.
+            <br>
+            <br>
+            Мы поехали вместе в магазин строительных материалов, купили всё необходимое и начали ремонт. Пару дней делали его вместе, а пару дней я продолжал один, пока ты была на работе. В итоге получилась очень классная комната. А потом мы просто стали жить там вместе.
+<br>
+<br>
+P.s. у меня к сожалению нету фотографий как мы ремонтировали, поэтому поставлю это)
+          </p>
+          <p class="comment">Я тогда особенно почувствовал заботу и тепло с твоей стороны — когда ты надела бандану мне на голову, чтобы я не испачкался. Этот момент только усилил моё желание помогать тебе и быть рядом. Одна из тех мелочей, которые незаметно, но точно направили меня к выбору тебя.</p>
+
+          <div class="unlock">
+            <div class="unlock-head">
+              <span class="badge">Вопрос</span>
+              <span class="hint">Ответ откроет следующую главу</span>
+            </div>
+
+            <label class="label" for="q2">Сколько раз у нас упала частичка потолка, пока мы красили его?</label>
+            <input class="input" id="q2" type="text" placeholder="Ответ в виде чисел" autocomplete="off"/>
+
+            <button class="btn" data-action="unlock" data-for="c3">Ответить</button>
+            <p class="error" hidden>Неа. Попробуй ещё раз.</p>
+          </div>
+        </div>
+      </div>
+      <div class="veil" aria-hidden="true">
+  <div class="shards">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+  </div>
+</div>
+    </section>
+
+    <!-- SECTION 3 (locked initially) -->
+    <section class="chapter locked" id="c3" data-index="2" data-locked="true">
+      <div class="chapter-inner">
+        <div class="media">
+          <img src="./images/03.jpg" alt="Момент 3">
+        </div>
+
+        <div class="content">
+          <h2 class="title">Я начал чувствовать глубже</h2>
+          <p class="desc">
+            <br>
+            Находясь рядом с тобой, я начал по-настоящему чувствовать. Не только свои эмоции, но и то, что у другого человека может быть совершенно иная внутренняя реальность. Я понял, что важно держать себя в руках, быть терпеливее и не мерить всё только через свою призму.
+            <br>
+            <br>
+            Я увидел, что одни и те же ситуации могут переживаться по-разному, и для тебя они могли быть в разы тяжелее, чем для меня. Тогда я впервые задумался о том, насколько важно не просто слышать слова, а понимать состояние человека рядом.
+    
+          </p>
+          <p class="comment">Ты научила меня замечать не только то, что происходит снаружи, но и то, что происходит внутри человека.</p>
+
+          <div class="unlock">
+            <div class="unlock-head">
+              <span class="badge">Вопрос</span>
+              <span class="hint">Ответ откроет следующую главу</span>
+            </div>
+
+            <label class="label" for="q3">Какие были первые цветы, которые я тебе подарил?</label>
+            <input class="input" id="q3" type="text" placeholder="Ты их как оказалось не любила" autocomplete="off"/>
+
+            <button class="btn" data-action="unlock" data-for="c4">Ответить</button>
+            <p class="error" hidden>Неа. Попробуй ещё раз.</p>
+          </div>
+        </div>
+      </div>
+      <div class="veil" aria-hidden="true">
+  <div class="shards">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+  </div>
+</div>
+    </section>
+
+<section class="chapter locked" id="c4" data-index="3" data-locked="true">
+  <div class="chapter-inner">
+    <div class="media">
+      <img src="./images/04.jpeg" alt="Глава 4">
+    </div>
+
+    <div class="content">
+      <h2 class="title">То, что я приобрёл рядом с тобой</h2>
+      <p class="desc">
+        <br>
+        Хорошего в наших отношениях было много. Рядом с тобой я был расслабленным и спокойным, как будто мне больше ничего не нужно. Ты поддерживала, была рядом, и это стало для меня чем-то привычным.
+        <br>
+        <br>
+        Я приобрёл чувство опоры и уверенности, но, к сожалению, со временем начал воспринимать это как должное. Я перестал замечать, сколько ты старалась, сколько меняла в себе и делала ради меня. И только позже понял, что рядом со мной был человек, который вкладывался по-настоящему.
+
+      </p>
+      <p class="comment">С тобой я чувствовал себя дома, даже не понимая тогда, насколько это ценно.</p>
+
+      <div class="unlock">
+        <div class="unlock-head">
+          <span class="badge">Вопрос</span>
+          <span class="hint">Ответ откроет следующую главу</span>
+        </div>
+
+        <label class="label" for="q4">сколько было цветочков в букете на твой день рождения?</label>
+        <input class="input" id="q4" type="text" placeholder="Ответ в виде чисел" autocomplete="off"/>
+
+        <button class="btn" data-action="unlock" data-for="c5">Ответить</button>
+        <p class="error" hidden>Неправильно. Попробуй ещё раз.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="veil" aria-hidden="true">
+    <div class="shards">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+</section>
+<section class="chapter locked" id="c5" data-index="4" data-locked="true">
+  <div class="chapter-inner">
+    <div class="media">
+      <img src="./images/05.jpeg" alt="Глава 5">
+    </div>
+
+    <div class="content">
+      <h2 class="title">То, что я не ценил вовремя</h2>
+      <p class="desc">
+        <br>
+        Я часто находил минусы и говорил о том, что, как мне казалось, было не так. При этом я не видел, сколько ты уже сделала и сколько изменила ради меня. Сейчас я понимаю, что вёл себя так же, как когда-то обвинял других — требуя и не замечая стараний.
+        <br>
+        <br>
+        Я не сразу понял, как много доверия потерял и какую боль причинил словами и поступками. Есть вещи, которые нельзя вернуть или исправить, и это тяжёлое осознание приходит только со временем.
+
+      </p>
+      <p class="comment">Ты старалась быть лучше для нас, а я слишком поздно это заметил.</p>
+
+      <div class="unlock">
+        <div class="unlock-head">
+          <span class="badge">Вопрос</span>
+          <span class="hint">Ответ откроет следующую главу</span>
+        </div>
+
+        <label class="label" for="q5">Фильм который мы посмотрели вместе 1 раз</label>
+        <input class="input" id="q5" type="text" placeholder="ответ так же с маленькой буквы" autocomplete="off"/>
+
+        <button class="btn" data-action="unlock" data-for="c6">Ответить</button>
+        <p class="error" hidden>Неправильно. Попробуй ещё раз.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="veil" aria-hidden="true">
+    <div class="shards">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+</section>
+<section class="chapter locked" id="c6" data-index="5" data-locked="true">
+  <div class="chapter-inner">
+    <div class="media">
+      <img src="./images/06.jpeg" alt="Глава 6">
+    </div>
+
+    <div class="content">
+      <h2 class="title">Что я понял сейчас</h2>
+      <p class="desc">
+        <br>
+        Я понял твои слова слишком поздно. Ты говорила, что я чаще замечаю, что не так в тебе, и почти не смотрю на себя. Я не умел вовремя оценивать, в каком состоянии ты находишься, и что тебе было нужно не просто совместное время, а поддержка, близость и ощущение любви.
+        <br>
+        <br>
+        Только сейчас я ясно понимаю, насколько важно не привыкать к человеку рядом и не терять внимательность к его чувствам. Осознание приходит поздно, но оно настоящее.
+      </p>
+      <p class="comment">Ты хотела не большего — ты хотела настоящего.</p>
+
+      <div class="unlock">
+        <div class="unlock-head">
+          <span class="badge">Вопрос</span>
+          <span class="hint">Правильный ответ откроет финальную главу</span>
+        </div>
+
+        <label class="label" for="q6">Сколько звезд было в отеле в котором мы жили в Питере?</label>
+        <input class="input" id="q6" type="text" placeholder="Ответ в виде числа" autocomplete="off"/>
+
+        <button class="btn" data-action="unlock" data-for="final">Открыть финал</button>
+        <p class="error" hidden>Неправильно. Попробуй ещё раз.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="veil" aria-hidden="true">
+    <div class="shards">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+</section>
+<section class="chapter locked" id="final" data-index="6" data-locked="true">
+  <div class="chapter-inner">
+    <div class="media endcard">
+      <div class="end-inner">
+        <h2 class="title">Финал истории</h2>
+        <p class="desc">
+            Я знаю, что тебе сейчас тяжело. <br>
+            И знаю, что в какой-то момент я был для тебя опорой, которая сломалась прямо у тебя на глазах.
+            <br>
+            Я много думал о том, как сделать так, чтобы ты меня поняла.
+            Как сделать, чтобы ты не думала, что всё повторится.
+            Как заслужить твою веру.
+            И в какой-то момент я понял — правильного способа убедить не существует.
+            <br>
+            Поэтому я сделал единственное, что мог сделать честно.
+            Я написал эту историю.
+            И ты видишь её сейчас не случайно — потому что я хочу, чтобы ты увидела, что я понял.
+            <br>
+            Я больше не хочу действовать из страха:
+            страха получить реакцию,
+            страха услышать отказ,
+            страха выбрать «не то время».
+            <br>
+            Я выбираю действовать тогда, когда чувствую, что это важно.
+            Потому что это мой осознанный выбор - выбор сердца.
+            <br>
+            Мне может быть тяжело.
+            Я могу жить какое-то время с сожалением.
+            Но я верю, что именно такие ошибки делают нас сильнее.
+            И я знаю, что этот опыт либо станет частью нашей общей истории,
+            либо останется со мной и поможет быть лучше дальше.
+            
+
+        </p>
+        <p class="comment">Сейчас для меня нет ничего важнее, чем быть честным с собой и с тобой.</p>
+      </div>
+    </div>
+
+    <div class="content">
+      <h3 class="title" style="margin-top:0;">Наши моменты</h3>
+      <p class="desc">Они всегда будут в памяти</p>
+
+      <div class="media-grid">
+        <div class="tile"><img src="./images/07.mov" alt=""></div>
+        <div class="tile"><img src="./images/08.mp4" alt=""></div>
+        <div class="tile"><img src="./images/09.JPG" alt=""></div>
+        <div class="tile"><img src="./images/10.jpeg" alt=""></div>
+        <div class="tile"><img src="./images/11.jpeg" alt=""></div>
+        <div class="tile"><img src="./images/12.PNG" alt=""></div>
+        <div class="tile"><img src="./images/13.mp4" alt=""></div>
+        <div class="tile"><img src="./images/14.MOV" alt=""></div>
+      </div>
+
+      <div class="unlock">
+        <div class="unlock-head">
+          <span class="badge">Конец</span>
+          <span class="hint">Можно вернуться в начало</span>
+        </div>
+        <button class="btn" data-action="to-top">Наверх</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="veil" aria-hidden="true">
+    <div class="shards">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <script src="./main.js"></script>
+</body>
+</html>

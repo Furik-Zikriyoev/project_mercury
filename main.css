@@ -1,0 +1,343 @@
+:root{
+  --bg: #070813;
+  --text: rgba(255,255,255,0.92);
+  --muted: rgba(255,255,255,0.72);
+  --line: rgba(255,255,255,0.14);
+  --card: rgba(255,255,255,0.06);
+  --shadow: 0 18px 60px rgba(0,0,0,0.45);
+  --radius: 18px;
+  --font: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --yellow: rgba(255, 220, 80, 0.95);
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; scroll-behavior: smooth; }
+body{
+  margin:0;
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
+  overflow-x:hidden;
+}
+
+/* Space background stays fixed */
+.space{
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  overflow:hidden;
+  background:
+    radial-gradient(1000px 700px at 20% 20%, rgba(142, 73, 255, 0.14), transparent 60%),
+    radial-gradient(900px 700px at 80% 30%, rgba(0, 208, 255, 0.12), transparent 55%),
+    radial-gradient(700px 600px at 55% 85%, rgba(255, 96, 170, 0.10), transparent 55%),
+    var(--bg);
+}
+
+.stars{
+  position:absolute;
+  inset: -40% -40%;
+  background-repeat: repeat;
+  opacity: 0.55;
+  transform: translateZ(0);
+}
+.stars-1{
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.85) 50%, transparent 52%),
+    radial-gradient(1px 1px at 40% 60%, rgba(255,255,255,0.65) 50%, transparent 52%),
+    radial-gradient(1px 1px at 70% 30%, rgba(255,255,255,0.80) 50%, transparent 52%),
+    radial-gradient(1px 1px at 85% 75%, rgba(255,255,255,0.60) 50%, transparent 52%),
+    radial-gradient(1px 1px at 25% 85%, rgba(255,255,255,0.70) 50%, transparent 52%);
+  background-size: 220px 220px;
+  animation: drift1 18s linear infinite;
+}
+.stars-2{
+  opacity: 0.40;
+  filter: blur(0.3px);
+  background-image:
+    radial-gradient(1px 1px at 15% 25%, rgba(255,255,255,0.55) 50%, transparent 52%),
+    radial-gradient(1px 1px at 35% 70%, rgba(255,255,255,0.50) 50%, transparent 52%),
+    radial-gradient(1px 1px at 60% 40%, rgba(255,255,255,0.55) 50%, transparent 52%),
+    radial-gradient(1px 1px at 90% 55%, rgba(255,255,255,0.45) 50%, transparent 52%),
+    radial-gradient(1px 1px at 55% 90%, rgba(255,255,255,0.50) 50%, transparent 52%);
+  background-size: 280px 280px;
+  animation: drift2 28s linear infinite;
+}
+.stars-3{
+  opacity: 0.25;
+  filter: blur(0.6px);
+  background-image:
+    radial-gradient(2px 2px at 20% 35%, rgba(255,255,255,0.35) 50%, transparent 52%),
+    radial-gradient(2px 2px at 45% 55%, rgba(255,255,255,0.30) 50%, transparent 52%),
+    radial-gradient(2px 2px at 75% 45%, rgba(255,255,255,0.34) 50%, transparent 52%),
+    radial-gradient(2px 2px at 88% 80%, rgba(255,255,255,0.28) 50%, transparent 52%);
+  background-size: 360px 360px;
+  animation: drift3 45s linear infinite;
+}
+.nebula{
+  position:absolute;
+  inset:-20%;
+  background:
+    radial-gradient(500px 420px at 25% 45%, rgba(255,255,255,0.06), transparent 60%),
+    radial-gradient(680px 520px at 70% 55%, rgba(255,255,255,0.05), transparent 60%);
+  animation: nebula 22s ease-in-out infinite alternate;
+}
+
+@keyframes drift1{ from{ transform: translate3d(0,0,0) scale(1.05);} to{ transform: translate3d(120px,220px,0) scale(1.05);} }
+@keyframes drift2{ from{ transform: translate3d(0,0,0) scale(1.1);}  to{ transform: translate3d(-160px,260px,0) scale(1.1);} }
+@keyframes drift3{ from{ transform: translate3d(0,0,0) scale(1.12);} to{ transform: translate3d(220px,-180px,0) scale(1.12);} }
+@keyframes nebula{ from{ transform: translate3d(0,0,0) scale(1); opacity:0.9;} to{ transform: translate3d(40px,-20px,0) scale(1.06); opacity:1;} }
+
+/* Timeline */
+.timeline{
+  position: relative;
+  z-index: 2;
+}
+
+.chapter{
+  height: 100vh;           /* ровно экран */
+  padding: 18px;           /* можно оставить, но меньше */
+  overflow: hidden;        /* чтобы ничего не вылазило */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position: relative;
+}
+.chapter-inner{
+  width: min(1650px, 100%); /* было 1100, стало ~+50% */
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 24px; /* чуть больше воздуха */
+}
+
+.media{
+    display: grid;
+    place-items: center;
+  border-radius: var(--radius);
+  overflow:hidden;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.03);
+  box-shadow: var(--shadow);
+}
+
+@media (min-width: 920px){
+  .chapter-inner{
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    height: calc(100vh - 36px); /* 100vh минус padding сверху/снизу */
+  }
+}
+
+.endcard{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 24px;
+  min-height: 320px;
+}
+.end-inner{
+  max-width: 44ch;
+  text-align:center;
+}
+
+.content{
+  border: 1px solid var(--line);
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: clamp(20px, 3.4vw, 34px);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.title{
+  margin: 0 0 10px;
+  letter-spacing: -0.03em;
+  font-size: clamp(24px, 2.6vw, 34px);
+}
+
+.desc{
+  margin: 0 0 32px; /* БОЛЬШОЙ ОТСТУП ПОСЛЕ ОСНОВНОГО ТЕКСТА */
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.comment{
+  margin: 0 0 24px;
+  padding-left: 14px; /* лёгкий сдвиг = интимность */
+  
+  color: rgba(255,255,255,0.90);
+  line-height: 1.6;
+  font-weight: 500;
+
+  border-left: 2px solid rgba(255,255,255,0.22); /* тонкий акцент */
+}
+/* Unlock card */
+.unlock{
+  margin-top: auto; /* 🔥 ПРИЖИМАЕТ ВНИЗ */
+  
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(0,0,0,0.22);
+  border-radius: 14px;
+  padding: 18px;
+
+  width: 100%; /* 🔥 НА ВСЮ ШИРИНУ */
+}
+
+.unlock-head{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.badge{
+  font-size: 12px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.06);
+}
+
+.hint{
+  font-size: 12px;
+  color: rgba(255,255,255,0.65);
+}
+
+.label{
+  display:block;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.70);
+  margin-bottom: 8px;
+}
+
+.input{
+  width:100%;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  font-size: 16px;
+  outline:none;
+  margin-bottom: 12px;
+}
+
+.btn{
+  appearance:none;
+  border: 1px solid rgba(255,255,255,0.22);
+  background: rgba(0,0,0,0.72);
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 16px;
+  cursor:pointer;
+  width: 100%;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.12),
+    0 10px 35px rgba(0,0,0,0.35),
+    0 0 18px rgba(255,255,255,0.14);
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+.btn:hover{
+  background: rgba(255,255,255,0.92);
+  color: #070813;
+  box-shadow:
+    0 10px 35px rgba(0,0,0,0.35),
+    0 0 26px rgba(255,255,255,0.26),
+    0 0 34px var(--yellow);
+}
+
+.btn:active{ transform: translateY(1px); }
+
+.error{
+  margin: 10px 0 0;
+  color: rgba(255,130,130,0.95);
+  font-weight: 750;
+}
+
+/* Locked state */
+.chapter.locked .chapter-inner{
+  filter: blur(10px) saturate(0.8);
+  opacity: 0.40;
+  pointer-events: none;
+  transform: scale(0.985);
+  transition: filter 250ms ease, opacity 250ms ease, transform 250ms ease;
+}
+
+/* veil for a subtle "glass" cover */
+.veil{
+  position:absolute;
+  inset: 0;
+  pointer-events:none;
+  background: radial-gradient(900px 500px at 50% 30%, rgba(255,255,255,0.06), transparent 55%);
+  opacity: 0.0;
+  transition: opacity 250ms ease;
+}
+.chapter.locked .veil{ opacity: 1; }
+
+@media (min-width: 920px){
+  .chapter-inner{
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+  }
+  .media img{
+    aspect-ratio: auto;
+    height: 100%;
+    min-height: 780px; /* было 520, стало заметно больше */
+  }
+  .btn{ width: auto; }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  html,body{ scroll-behavior: auto; }
+  .stars-1,.stars-2,.stars-3,.nebula{ animation: none !important; }
+}
+.chapter{
+  height: 100vh;           /* ровно экран */
+  padding: 18px;           /* можно оставить, но меньше */
+  overflow: hidden;        /* чтобы ничего не вылазило */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position: relative;
+}
+.media-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 12px 0 0;
+}
+
+.tile{
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.04);
+  aspect-ratio: 1 / 1;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+}
+
+.tile img, .tile video{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (min-width: 920px){
+  .media-grid{
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
